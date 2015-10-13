@@ -49,7 +49,7 @@ namespace DiplomaOptions.Migrations.Identity
                 };
                 var result = userManager.Create(user, "P@$$w0rd");
                 if (result.Succeeded)
-                    userManager.AddToRole(userManager.FindByEmail(user.Email).Id, " ");
+                    userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "");
             }
 
 

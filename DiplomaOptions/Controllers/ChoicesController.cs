@@ -52,13 +52,12 @@ namespace DiplomaOptions.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "ChoiceId,YearTermId,StudentId,StudentFirstName,StudentLastName,FirstChoiceOptionId,SecondChoiceOptionId,ThirdChoiceOptionId,FourthChoiceOptionId,SelectionDate")] Choice choice)
         {
-
-
             if (ModelState.IsValid)
             {
                 choice.YearTermId = (db.YearTerms
-                .Where(t => t.isDefault == true)
-                .Select(t => t.YearTermId).FirstOrDefault());
+                    .Where(t => t.isDefault == true)
+                    .Select(t => t.YearTermId).FirstOrDefault());
+                choice.SelectionDate = DateTime.Now;
                 db.Choices.Add(choice);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

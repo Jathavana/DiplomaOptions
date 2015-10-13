@@ -174,36 +174,22 @@
     <Compile Include="Controllers\OptionsController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Controllers\YearTermsController.cs" />
+    <Compile Include="Migrations\Diploma\201510130627000_InitialCreate.cs" />
+    <Compile Include="Migrations\Diploma\201510130627000_InitialCreate.Designer.cs">
+      <DependentUpon>201510130627000_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Diploma\Configuration.cs" />
+    <Compile Include="Migrations\Identity\201510130627135_InitialCreate.cs" />
+    <Compile Include="Migrations\Identity\201510130627135_InitialCreate.Designer.cs">
+      <DependentUpon>201510130627135_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Identity\Configuration.cs" />
+    <Compile Include="Models\DiplomaContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Diploma\201510121934160_InitialCreate.cs" />
-    <Compile Include="Migrations\Diploma\201510121934160_InitialCreate.Designer.cs">
-      <DependentUpon>201510121934160_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Diploma\201510122226413_ChoiceNameChanges.cs" />
-    <Compile Include="Migrations\Diploma\201510122226413_ChoiceNameChanges.Designer.cs">
-      <DependentUpon>201510122226413_ChoiceNameChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Diploma\201510130101200_Change Student ID in Choices.cs" />
-    <Compile Include="Migrations\Diploma\201510130101200_Change Student ID in Choices.Designer.cs">
-      <DependentUpon>201510130101200_Change Student ID in Choices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Diploma\Configuration.cs" />
-    <Compile Include="Migrations\Identity\201510121934220_InitialCreate.cs" />
-    <Compile Include="Migrations\Identity\201510121934220_InitialCreate.Designer.cs">
-      <DependentUpon>201510121934220_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Identity\201510122126499_Birthday.cs" />
-    <Compile Include="Migrations\Identity\201510122126499_Birthday.Designer.cs">
-      <DependentUpon>201510122126499_Birthday.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Identity\201510122226005_ChoiceNameChanges.cs" />
-    <Compile Include="Migrations\Identity\201510122226005_ChoiceNameChanges.Designer.cs">
-      <DependentUpon>201510122226005_ChoiceNameChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Identity\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CustomValidation\DuplicateStudent.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -300,23 +286,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\Diploma\201510121934160_InitialCreate.resx">
-      <DependentUpon>201510121934160_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Diploma\201510130627000_InitialCreate.resx">
+      <DependentUpon>201510130627000_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Diploma\201510122226413_ChoiceNameChanges.resx">
-      <DependentUpon>201510122226413_ChoiceNameChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Diploma\201510130101200_Change Student ID in Choices.resx">
-      <DependentUpon>201510130101200_Change Student ID in Choices.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Identity\201510121934220_InitialCreate.resx">
-      <DependentUpon>201510121934220_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Identity\201510122126499_Birthday.resx">
-      <DependentUpon>201510122126499_Birthday.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Identity\201510122226005_ChoiceNameChanges.resx">
-      <DependentUpon>201510122226005_ChoiceNameChanges.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Identity\201510130627135_InitialCreate.resx">
+      <DependentUpon>201510130627135_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,26 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using DiplomaDataModel.CustomValidation;
 
 namespace DiplomaDataModel
 {
 
     public class Choice
     {
-
-        private DiplomaContext db = new DiplomaContext();
-
-        public Choice()
-        {
-            YearTermId = (db.YearTerms
-                .Where(t => t.isDefault == true)
-                .Select(t => t.YearTermId).FirstOrDefault());
-
-
-
-        }
-
-
         public int ChoiceId { get; set; }
 
         //No dropdown of yearTerm - use constructor to retrieve default Term
@@ -38,7 +25,7 @@ namespace DiplomaDataModel
         //No duplicate rows allowed for the same year term
         [Display(Name = "Student Id")]
         [RegularExpression("A00\\d{6}", ErrorMessage="Invalid Student ID, A00123456 is the expected format")]
-        [RemoteAttribute("IsUserExists", "Validate", ErrorMessage = "This shit is dope")]
+        [DuplicateStudent(ErrorMessage="This student ID already exists in the database")]
         public string StudentId { get; set; }
 
         [Required]
@@ -92,8 +79,8 @@ namespace DiplomaDataModel
         [ScaffoldColumn(false)]
         //[ForeignKey("ThirdChoiceOptionId")]
         public Option ThirdChoiceOption { get; set; }
-        [ForeignKey("FourthChoiceOptionId")]
-        //[ScaffoldColumn(false)]
+        //[ForeignKey("FourthChoiceOptionId")]
+        [ScaffoldColumn(false)]
         public Option FourthChoiceOption { get; set; }
 
     }

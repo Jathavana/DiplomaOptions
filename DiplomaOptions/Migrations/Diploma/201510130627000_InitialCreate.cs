@@ -13,7 +13,7 @@ namespace DiplomaOptions.Migrations.Diploma
                     {
                         ChoiceId = c.Int(nullable: false, identity: true),
                         YearTermId = c.Int(nullable: false),
-                        StudentId = c.Int(nullable: false),
+                        StudentId = c.String(nullable: false),
                         StudentFirstName = c.String(nullable: false, maxLength: 40),
                         StudentLastName = c.String(nullable: false, maxLength: 40),
                         FirstChoiceOptionId = c.Int(nullable: false),
@@ -21,25 +21,22 @@ namespace DiplomaOptions.Migrations.Diploma
                         ThirdChoiceOptionId = c.Int(nullable: false),
                         FourthChoiceOptionId = c.Int(nullable: false),
                         SelectionDate = c.DateTime(nullable: false),
-                        Option_OptionId = c.Int(),
-                        FirstOption_OptionId = c.Int(),
-                        FourthOption_OptionId = c.Int(),
-                        SecondOption_OptionId = c.Int(),
-                        ThirdOption_OptionId = c.Int(),
+                        FirstChoiceOption_OptionId = c.Int(),
+                        FourthChoiceOption_OptionId = c.Int(),
+                        SecondChoiceOption_OptionId = c.Int(),
+                        ThirdChoiceOption_OptionId = c.Int(),
                     })
                 .PrimaryKey(t => t.ChoiceId)
-                .ForeignKey("dbo.Options", t => t.Option_OptionId)
-                .ForeignKey("dbo.Options", t => t.FirstOption_OptionId)
-                .ForeignKey("dbo.Options", t => t.FourthOption_OptionId)
-                .ForeignKey("dbo.Options", t => t.SecondOption_OptionId)
-                .ForeignKey("dbo.Options", t => t.ThirdOption_OptionId)
+                .ForeignKey("dbo.Options", t => t.FirstChoiceOption_OptionId)
+                .ForeignKey("dbo.Options", t => t.FourthChoiceOption_OptionId)
+                .ForeignKey("dbo.Options", t => t.SecondChoiceOption_OptionId)
+                .ForeignKey("dbo.Options", t => t.ThirdChoiceOption_OptionId)
                 .ForeignKey("dbo.YearTerms", t => t.YearTermId, cascadeDelete: true)
                 .Index(t => t.YearTermId)
-                .Index(t => t.Option_OptionId)
-                .Index(t => t.FirstOption_OptionId)
-                .Index(t => t.FourthOption_OptionId)
-                .Index(t => t.SecondOption_OptionId)
-                .Index(t => t.ThirdOption_OptionId);
+                .Index(t => t.FirstChoiceOption_OptionId)
+                .Index(t => t.FourthChoiceOption_OptionId)
+                .Index(t => t.SecondChoiceOption_OptionId)
+                .Index(t => t.ThirdChoiceOption_OptionId);
             
             CreateTable(
                 "dbo.Options",
@@ -67,16 +64,14 @@ namespace DiplomaOptions.Migrations.Diploma
         public override void Down()
         {
             DropForeignKey("dbo.Choices", "YearTermId", "dbo.YearTerms");
-            DropForeignKey("dbo.Choices", "ThirdOption_OptionId", "dbo.Options");
-            DropForeignKey("dbo.Choices", "SecondOption_OptionId", "dbo.Options");
-            DropForeignKey("dbo.Choices", "FourthOption_OptionId", "dbo.Options");
-            DropForeignKey("dbo.Choices", "FirstOption_OptionId", "dbo.Options");
-            DropForeignKey("dbo.Choices", "Option_OptionId", "dbo.Options");
-            DropIndex("dbo.Choices", new[] { "ThirdOption_OptionId" });
-            DropIndex("dbo.Choices", new[] { "SecondOption_OptionId" });
-            DropIndex("dbo.Choices", new[] { "FourthOption_OptionId" });
-            DropIndex("dbo.Choices", new[] { "FirstOption_OptionId" });
-            DropIndex("dbo.Choices", new[] { "Option_OptionId" });
+            DropForeignKey("dbo.Choices", "ThirdChoiceOption_OptionId", "dbo.Options");
+            DropForeignKey("dbo.Choices", "SecondChoiceOption_OptionId", "dbo.Options");
+            DropForeignKey("dbo.Choices", "FourthChoiceOption_OptionId", "dbo.Options");
+            DropForeignKey("dbo.Choices", "FirstChoiceOption_OptionId", "dbo.Options");
+            DropIndex("dbo.Choices", new[] { "ThirdChoiceOption_OptionId" });
+            DropIndex("dbo.Choices", new[] { "SecondChoiceOption_OptionId" });
+            DropIndex("dbo.Choices", new[] { "FourthChoiceOption_OptionId" });
+            DropIndex("dbo.Choices", new[] { "FirstChoiceOption_OptionId" });
             DropIndex("dbo.Choices", new[] { "YearTermId" });
             DropTable("dbo.YearTerms");
             DropTable("dbo.Options");

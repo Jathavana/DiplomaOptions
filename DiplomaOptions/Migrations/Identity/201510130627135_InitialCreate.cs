@@ -35,7 +35,7 @@ namespace DiplomaOptions.Migrations.Identity
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        StudentId = c.String(nullable: false),
+                        StudentId = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
