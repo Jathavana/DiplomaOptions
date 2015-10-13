@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Web.Mvc;
+
 
 namespace DiplomaDataModel
 {
@@ -21,6 +24,7 @@ namespace DiplomaDataModel
         //No duplicate rows allowed for the same year term
         [Display(Name = "Student Id")]
         [RegularExpression("A00\\d{6}", ErrorMessage="Invalid Student ID, A00123456 is the expected format")]
+        [RemoteAttribute("IsUserExists", "Validation")]
         public int StudentId { get; set; }
 
         [Required]
