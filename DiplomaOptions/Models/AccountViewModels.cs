@@ -65,7 +65,7 @@ namespace DiplomaOptions.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
+        [RegularExpression("A00\\d{6}", ErrorMessage = "Invalid Student ID, A00123456 is the expected format")]
         [Display(Name = "Student ID")]
         public string StudentId { get; set; }
 

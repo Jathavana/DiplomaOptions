@@ -10,4 +10,6 @@ namespace DiplomaDataModel
         public DbSet<Option> Options { get; set; }
         public DbSet<YearTerm> YearTerms { get; set; }
     }
+
+
 }

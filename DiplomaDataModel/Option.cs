@@ -18,6 +18,5 @@ namespace DiplomaDataModel
         [Display(Name = "Active")]
         public Boolean IsActive { get; set; }
 
-        public List<Choice> Choices { get; set; }
     }
 }

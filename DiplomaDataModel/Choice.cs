@@ -1,14 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DiplomaDataModel
 {
+
     public class Choice
     {
+
+        private DiplomaContext db = new DiplomaContext();
+
+        public Choice()
+        {
+            YearTermId = (db.YearTerms
+                .Where(t => t.isDefault == true)
+                .Select(t => t.YearTermId).FirstOrDefault());
+
+
+
+        }
+
+
         public int ChoiceId { get; set; }
 
         //No dropdown of yearTerm - use constructor to retrieve default Term
@@ -37,29 +53,28 @@ namespace DiplomaDataModel
         //ALL FOUR REQUIRED
         //FIRST YEAR STUDENTS CANNOT CHOOSE THE SAME OPTION MORE THAN TWICE
         [Required]
+        [UIHint("_OptionDropDown")]
         [Display(Name = "First Option Choice")]
-        //Dropdown
         public int FirstChoiceOptionId { get; set; }
 
         [Display(Name = "Second Option Choice")]
         [Required]
-        //Dropdown
+        [UIHint("_OptionDropDown")]
         public int SecondChoiceOptionId { get; set; }
 
         [Display(Name = "Third Option Choice")]
         [Required]
-        //Dropdown
+        [UIHint("_OptionDropDown")]
         public int ThirdChoiceOptionId { get; set; }
 
         [Display(Name = "Fourth Option Choice")]
         [Required]
-        //Dropdown
+        [UIHint("_OptionDropDown")]
         public int FourthChoiceOptionId { get; set; }
 
         //Always the current dates, don't scaffold
         [ScaffoldColumn(false)]
         public DateTime SelectionDate { get; set; }
-
 
         //Don't scaffold these
         [ScaffoldColumn(false)]
@@ -67,13 +82,17 @@ namespace DiplomaDataModel
 
         //Don't scaffold these
         [ScaffoldColumn(false)]
-        public Option FirstOption { get; set; }
+        [ForeignKey("FirstChoiceOptionId")]
+        public Option FirstChoiceOption { get; set; }
         [ScaffoldColumn(false)]
-        public Option SecondOption { get; set; }
+        [ForeignKey("SecondChoiceOptionId")]
+        public Option SecondChoiceOption { get; set; }
         [ScaffoldColumn(false)]
-        public Option ThirdOption { get; set; }
+        [ForeignKey("ThirdChoiceOptionId")]
+        public Option ThirdChoiceOption { get; set; }
+        [ForeignKey("FourthChoiceOptionId")]
         [ScaffoldColumn(false)]
-        public Option FourthOption { get; set; }
+        public Option FourthChoiceOption { get; set; }
 
     }
 }
