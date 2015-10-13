@@ -11,6 +11,8 @@ add-migration -ConfigurationTypeName DiplomaOptions.Migrations.Diploma.Configura
 
 add-migration -ConfigurationTypeName DiplomaOptions.Migrations.Diploma.Configuration "ChoiceForeignKeyChanges"
 
+add-migration -ConfigurationTypeName DiplomaOptions.Migrations.Diploma.Configuration "Change Student ID in Choices"
+
 
 
 

@@ -184,6 +184,10 @@
     <Compile Include="Migrations\Diploma\201510122226413_ChoiceNameChanges.Designer.cs">
       <DependentUpon>201510122226413_ChoiceNameChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Diploma\201510130101200_Change Student ID in Choices.cs" />
+    <Compile Include="Migrations\Diploma\201510130101200_Change Student ID in Choices.Designer.cs">
+      <DependentUpon>201510130101200_Change Student ID in Choices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Diploma\Configuration.cs" />
     <Compile Include="Migrations\Identity\201510121934220_InitialCreate.cs" />
     <Compile Include="Migrations\Identity\201510121934220_InitialCreate.Designer.cs">
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Diploma\201510122226413_ChoiceNameChanges.resx">
       <DependentUpon>201510122226413_ChoiceNameChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Diploma\201510130101200_Change Student ID in Choices.resx">
+      <DependentUpon>201510130101200_Change Student ID in Choices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201510121934220_InitialCreate.resx">
       <DependentUpon>201510121934220_InitialCreate.cs</DependentUpon>

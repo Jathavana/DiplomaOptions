@@ -5,9 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
-using System.Web.Mvc;
-
 
 namespace DiplomaDataModel
 {
@@ -40,8 +37,7 @@ namespace DiplomaDataModel
         //No duplicate rows allowed for the same year term
         [Display(Name = "Student Id")]
         [RegularExpression("A00\\d{6}", ErrorMessage="Invalid Student ID, A00123456 is the expected format")]
-        [RemoteAttribute("IsUserExists", "Validation")]
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
 
         [Required]
         [MaxLength(40)]
@@ -57,23 +53,23 @@ namespace DiplomaDataModel
         //ALL FOUR REQUIRED
         //FIRST YEAR STUDENTS CANNOT CHOOSE THE SAME OPTION MORE THAN TWICE
         [Required]
-        [UIHint("_OptionDropDown")]
+        //[UIHint("_OptionDropDown")]
         [Display(Name = "First Option Choice")]
         public int FirstChoiceOptionId { get; set; }
 
         [Display(Name = "Second Option Choice")]
         [Required]
-        [UIHint("_OptionDropDown")]
+        //[UIHint("_OptionDropDown")]
         public int SecondChoiceOptionId { get; set; }
 
         [Display(Name = "Third Option Choice")]
         [Required]
-        [UIHint("_OptionDropDown")]
+        //[UIHint("_OptionDropDown")]
         public int ThirdChoiceOptionId { get; set; }
 
         [Display(Name = "Fourth Option Choice")]
         [Required]
-        [UIHint("_OptionDropDown")]
+        //[UIHint("_OptionDropDown")]
         public int FourthChoiceOptionId { get; set; }
 
         //Always the current dates, don't scaffold
@@ -86,16 +82,16 @@ namespace DiplomaDataModel
 
         //Don't scaffold these
         [ScaffoldColumn(false)]
-        [ForeignKey("FirstChoiceOptionId")]
+        //[ForeignKey("FirstChoiceOptionId")]
         public Option FirstChoiceOption { get; set; }
         [ScaffoldColumn(false)]
-        [ForeignKey("SecondChoiceOptionId")]
+        //[ForeignKey("SecondChoiceOptionId")]
         public Option SecondChoiceOption { get; set; }
         [ScaffoldColumn(false)]
-        [ForeignKey("ThirdChoiceOptionId")]
+        //[ForeignKey("ThirdChoiceOptionId")]
         public Option ThirdChoiceOption { get; set; }
         [ForeignKey("FourthChoiceOptionId")]
-        [ScaffoldColumn(false)]
+        //[ScaffoldColumn(false)]
         public Option FourthChoiceOption { get; set; }
 
     }
