@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DiplomaDataModel
 {
@@ -36,6 +37,7 @@ namespace DiplomaDataModel
         //Enter Regex to check Student ID A00## Format Max 9
         //No duplicate rows allowed for the same year term
         [Display(Name = "Student Id")]
+        [RemoteAttribute("IsUserExists", "Home", AdditionalFields = "Name")]
         [RegularExpression("A00\\d{6}", ErrorMessage="Invalid Student ID, A00123456 is the expected format")]
         public string StudentId { get; set; }
 
